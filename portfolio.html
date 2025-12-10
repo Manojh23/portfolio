@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Manoj Harridoss - Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6; color: #333; background-color: #f5f5f5;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 60px 20px; text-align: center; border-radius: 10px;
+            margin-bottom: 40px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.2em; opacity: 0.95; }
+        .section {
+            background: white; padding: 40px; margin-bottom: 30px; border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            color: #667eea; font-size: 1.8em; margin-bottom: 20px; padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        .video-container {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            margin: 20px 0; border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+        }
+        .btn {
+            display: inline-block; padding: 12px 30px; background: #667eea; color: white;
+            text-decoration: none; border-radius: 5px; margin: 10px 10px 10px 0;
+            transition: background 0.3s ease; font-weight: 500;
+        }
+        .btn:hover { background: #764ba2; }
+        .btn-secondary { background: #48bb78; }
+        .btn-secondary:hover { background: #38a169; }
+        footer { text-align: center; padding: 40px 20px; color: #666; }
+        .contact-links { margin-top: 20px; }
+        .contact-links a {
+            margin: 0 15px; color: #667eea; text-decoration: none; font-weight: 500;
+        }
+        .contact-links a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .section { padding: 25px; }
+            .section h2 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Manoj Harridoss</h1>
+        <p>MS Computer Science | AI/ML Specialization</p>
+        <p>Northeastern University</p>
+    </header>
+
+    <!-- Module 4: Professional Introduction -->
+    <section class="section">
+        <h2>Module 4: Professional Introduction</h2>
+        <div class="video-container">
+            <iframe src="https://northeastern.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e54da4d7-4a8f-495a-94a3-b38800178e4d" allowfullscreen></iframe>
+        </div>
+        <p>A brief professional introduction highlighting my background in AI/ML, research experience, and career objectives.</p>
+    </section>
+
+    <!-- Module 7: Professional Resume -->
+    <section class="section">
+        <h2>Module 7: Professional Resume</h2>
+        <p>My professional resume highlighting my academic background, research publications, technical projects, and relevant experience in machine learning and artificial intelligence.</p>
+        <div style="margin-top: 20px;">
+            <a href="./manoj-coop-resume.pdf" class="btn" target="_blank">View Resume</a>
+            <a href="./manoj-coop-resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+        </div>
+    </section>
+
+    <!-- Module 8: Tell Me About Yourself -->
+    <section class="section">
+        <h2>Module 8: Tell Me About Yourself</h2>
+        <div class="video-container">
+            <iframe src="https://northeastern.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5ec6e083-ba6e-450b-bef4-b388001b6ea8" allowfullscreen></iframe>
+        </div>
+        <p>My response to the classic interview question, covering my educational background, research experience, and career aspirations in machine learning engineering.</p>
+    </section>
+
+    <!-- Module 9: Job Search Strategy Plan -->
+    <section class="section">
+        <h2>Module 9: Job Search Strategy Plan</h2>
+        <p>A comprehensive strategy outlining my approach to securing Summer 2026 ML engineering internships, including target companies, search channels, timeline, and skill development plans.</p>
+        <div style="margin-top: 20px;">
+            <a href="./Job_Search_Strategy_Manoj_Harridoss%20(1).pdf" class="btn" target="_blank">View Strategy Plan</a>
+            <a href="./Job_Search_Strategy_Manoj_Harridoss%20(1).pdf" class="btn btn-secondary" download>Download Strategy Plan</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Manoj Harridoss | Northeastern University</p>
+        <div class="contact-links">
+            <a href="mailto:harridoss.m@northeastern.edu">Email</a>
+            <!-- TODO: replace with your actual profiles -->
+            <a href="#" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">GitHub</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
