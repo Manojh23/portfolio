@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML CSS JavaScript Self Assessment</title>
+  <meta name="description" content="A self assessment webpage demonstrating HTML, CSS, JavaScript, SEO basics, the box model, font units, and CSS positioning.">
+  <meta name="keywords" content="HTML, CSS, JavaScript, SEO, box model, positioning">
+  <meta name="author" content="Manoj">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">Web Self Assessment</div>
+      <div class="nav-links">
+        <a href="#html">HTML</a>
+        <a href="#seo">SEO</a>
+        <a href="#css">CSS</a>
+        <a href="#positioning">Positioning</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>HTML + CSS + JavaScript Self Assessment</h1>
+      <p>This page shows the main concepts I practiced in vanilla HTML, CSS, and JavaScript.</p>
+      <button id="learnedButton">What did I learn?</button>
+      <p id="learnedMessage"></p>
+    </section>
+
+    <section id="html" class="card">
+      <h2>1. HTML Structure and Useful Tags</h2>
+      <p>HTML gives a webpage its structure and meaning.</p>
+      <h3>10 HTML tags I find most useful</h3>
+      <ol>
+        <li><code>&lt;div&gt;</code> - groups content into sections.</li>
+        <li><code>&lt;span&gt;</code> - groups small inline pieces of content.</li>
+        <li><code>&lt;h1&gt;</code> - main page heading.</li>
+        <li><code>&lt;p&gt;</code> - paragraph text.</li>
+        <li><code>&lt;a&gt;</code> - creates links.</li>
+        <li><code>&lt;img&gt;</code> - displays images.</li>
+        <li><code>&lt;ul&gt;</code> - unordered list.</li>
+        <li><code>&lt;li&gt;</code> - list item.</li>
+        <li><code>&lt;button&gt;</code> - clickable button.</li>
+        <li><code>&lt;section&gt;</code> - separates meaningful page sections.</li>
+      </ol>
+
+      <h3>3 × 3 layout using only divs and spans</h3>
+      <p>No table and no CSS layout is used for the grid below.</p>
+      <div><span>1</span> | <span>2</span> | <span>3</span></div>
+      <div><span>4</span> | <span>5</span> | <span>6</span></div>
+      <div><span>7</span> | <span>8</span> | <span>9</span></div>
+    </section>
+
+    <section id="seo" class="card">
+      <h2>2. SEO Basics</h2>
+      <p>SEO stands for Search Engine Optimization. Good page titles, descriptions, headings, and semantic HTML help search engines understand a webpage.</p>
+      <h3>Important tags for SEO</h3>
+      <ul>
+        <li><code>&lt;title&gt;</code> - tells search engines and users the page title.</li>
+        <li><code>&lt;meta name="description"&gt;</code> - summarizes the page.</li>
+        <li><code>&lt;h1&gt;</code> - describes the main topic of the page.</li>
+        <li><code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> - organize page sections.</li>
+        <li><code>&lt;meta name="robots"&gt;</code> - gives crawling/indexing instructions.</li>
+        <li><code>&lt;link rel="canonical"&gt;</code> - can identify the preferred URL for duplicate pages.</li>
+      </ul>
+    </section>
+
+    <section id="css" class="card">
+      <h2>3. CSS Box Model and Font Units</h2>
+      <p>The box model contains content, padding, border, and margin. Each row below changes one of those values.</p>
+
+      <h3>Border: 0px, 5px, 10px</h3>
+      <div class="gallery-row">
+        <div class="box border-0">0px border</div>
+        <div class="box border-5">5px border</div>
+        <div class="box border-10">10px border</div>
+      </div>
+
+      <h3>Margin: 0px, 5px, 10px</h3>
+      <div class="gallery-row">
+        <div class="box margin-0">0px margin</div>
+        <div class="box margin-5">5px margin</div>
+        <div class="box margin-10">10px margin</div>
+      </div>
+
+      <h3>Padding: 0px, 5px, 10px</h3>
+      <div class="gallery-row">
+        <div class="box padding-0">0px padding</div>
+        <div class="box padding-5">5px padding</div>
+        <div class="box padding-10">10px padding</div>
+      </div>
+
+      <h3>Font Size Units</h3>
+      <ul class="font-list">
+        <li style="font-size: 12px;">12px - I would use pixels when I want a small exact size, such as a caption.</li>
+        <li style="font-size: 16pt;">16pt - Points are more common for print-like content.</li>
+        <li style="font-size: 1em;">1em - I would use em when the size should depend on the parent element.</li>
+        <li style="font-size: 1.25rem;">1.25rem - I would use rem for consistent text sizing across a page.</li>
+        <li style="font-size: 120%;">120% - Percent is useful when I want text relative to its inherited size.</li>
+        <li style="font-size: 2vw;">2vw - Viewport width can be useful for text that scales with the browser width.</li>
+      </ul>
+    </section>
+
+    <section id="positioning" class="card">
+      <h2>4. CSS Positioning</h2>
+      <p>The examples below show static, relative, absolute, and sticky positioning.</p>
+      <div class="position-area">
+        <div class="static-example">Static: the normal default position in the page flow.</div>
+        <div class="relative-example">Relative: stays in the normal flow but can be shifted slightly.</div>
+        <div class="absolute-wrapper">
+          Relative parent
+          <div class="absolute-example">Absolute</div>
+        </div>
+        <div class="sticky-example">Sticky: this stays near the top while scrolling inside the page.</div>
+      </div>
+      <h3>When I would use them</h3>
+      <ul>
+        <li><strong>Static:</strong> normal text and page sections.</li>
+        <li><strong>Relative:</strong> slightly moving an element or giving an absolute child a reference point.</li>
+        <li><strong>Absolute:</strong> labels, badges, or icons placed inside a container.</li>
+        <li><strong>Sticky:</strong> headers or controls that should remain visible while scrolling.</li>
+        <li><strong>Fixed:</strong> elements that should remain attached to the browser window, such as this footer.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>HTML + CSS + JavaScript Self Assessment</span>
+    <span id="currentYear"></span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
