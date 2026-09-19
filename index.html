@@ -1,202 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manoj Harridoss</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Selected AI research and software engineering work by Manoj Harridoss, MS Computer Science at Northeastern University." />
+  <title>Manoj Harridoss | Selected Work</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --ink: #162033;
+      --muted: #657086;
+      --line: #dfe5ee;
+      --paper: #ffffff;
+      --soft: #f6f8fb;
+      --blue: #2459d6;
+      --violet: #6f55c8;
+      --teal: #147d7e;
+      --shadow: 0 14px 36px rgba(24, 36, 58, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
-      color: #e0e0e0;
-      min-height: 100vh;
-      line-height: 1.6;
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 4% 0%, rgba(36, 89, 214, 0.08), transparent 28rem),
+        radial-gradient(circle at 96% 9%, rgba(111, 85, 200, 0.08), transparent 24rem),
+        #f4f6fa;
+      line-height: 1.5;
     }
-    .container { max-width: 900px; margin: 0 auto; padding: 60px 24px; }
-    
-    header { text-align: center; margin-bottom: 80px; }
-    h1 {
-      font-size: 3rem;
+
+    a { color: inherit; }
+    .page {
+      width: min(1060px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--paper);
+      border: 1px solid rgba(22, 32, 51, 0.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      height: 7px;
+      background: linear-gradient(90deg, var(--blue), var(--violet), var(--teal));
+    }
+
+    .content { padding: 44px 52px 40px; }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 36px;
+      align-items: end;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 7px;
+      font-size: 0.76rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--blue);
     }
-    .tagline {
-      font-size: 1.1rem;
-      color: #9ca3af;
-      margin-bottom: 24px;
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 760;
     }
-    .links {
+
+    .subtitle {
+      margin: 13px 0 0;
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .contact {
       display: flex;
-      justify-content: center;
-      gap: 20px;
+      justify-content: flex-end;
+      gap: 9px;
       flex-wrap: wrap;
     }
-    .links a {
-      color: #60a5fa;
+
+    .contact a,
+    .small-link {
       text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.82rem;
+      font-weight: 650;
+      transition: transform 160ms ease, border-color 160ms ease, color 160ms ease;
     }
-    .links a:hover { color: #93c5fd; }
-    
-    section { margin-bottom: 60px; }
-    h2 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #a78bfa;
-      margin-bottom: 24px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #2d2d44;
+
+    .contact a:hover,
+    .small-link:hover {
+      transform: translateY(-1px);
+      border-color: #aebbd3;
+      color: var(--blue);
     }
-    
-    .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
+
+    .intro {
+      margin: 25px 0 30px;
+      max-width: 880px;
+      font-size: 1.04rem;
+      color: #39445a;
     }
-    .card:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(167,139,250,0.3);
-      transform: translateY(-2px);
-    }
-    .card.highlight {
-      border-left: 3px solid #a78bfa;
-    }
-    .card-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #a78bfa;
-      margin-bottom: 8px;
-    }
-    .card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #f3f4f6;
-      margin-bottom: 8px;
-    }
-    .card .meta {
-      font-size: 0.9rem;
-      color: #9ca3af;
-      margin-bottom: 12px;
-    }
-    .card p {
-      color: #d1d5db;
-      font-size: 0.95rem;
-    }
-    .card a {
-      display: inline-block;
-      margin-top: 16px;
-      color: #60a5fa;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-    .card a:hover { text-decoration: underline; }
-    
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
       gap: 20px;
+      margin: 28px 0 14px;
     }
-    .project-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 24px;
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #42506a;
     }
-    .project-card h4 {
-      font-size: 1.1rem;
-      color: #f3f4f6;
-      margin-bottom: 8px;
+
+    .section-heading span {
+      font-size: 0.79rem;
+      color: var(--muted);
     }
-    .project-card p {
-      font-size: 0.9rem;
-      color: #9ca3af;
+
+    .feature {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 28px;
+      padding: 26px 28px;
+      background: linear-gradient(135deg, #f8faff 0%, #f8f7ff 100%);
+      border: 1px solid #dfe5f1;
+      border-radius: 18px;
+      overflow: hidden;
     }
-    
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(var(--blue), var(--violet));
+    }
+
+    .kicker {
+      margin: 0 0 7px;
+      color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.26rem;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .meta {
+      margin: 6px 0 11px;
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .body-copy {
+      margin: 0;
+      color: #3d4860;
+      font-size: 0.92rem;
+    }
+
+    .points {
+      margin: 15px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .points li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.88rem;
+      color: #344057;
+    }
+
+    .points li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.58em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--violet);
+    }
+
+    .side-note {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.76);
+      border: 1px solid rgba(111, 85, 200, 0.16);
+    }
+
+    .side-note strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 0.82rem;
+      color: #2f3b54;
+    }
+
+    .side-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 650;
+      color: #40506d;
+      border: 1px solid #d9e0ec;
+      background: #fff;
+    }
+
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 14px;
+    }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      position: relative;
+      padding: 20px 20px 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      min-height: 100%;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: auto 18px 0 18px;
+      height: 2px;
+      opacity: 0.55;
+      background: linear-gradient(90deg, var(--blue), var(--violet));
+    }
+
+    .card h3 { font-size: 1.04rem; }
+    .card .body-copy { font-size: 0.84rem; }
+    .card .chips { margin-top: 14px; }
+    .card-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--blue);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .result-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 13px;
+    }
+
+    .result {
+      padding: 7px 9px;
+      border-radius: 9px;
+      background: var(--soft);
+      border: 1px solid #e6eaf1;
+      font-size: 0.76rem;
+      color: #45516a;
+      font-weight: 650;
+    }
+
+    .software-band {
+      margin-top: 30px;
+      padding-top: 3px;
+    }
+
+    .software-card {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+    }
+
     footer {
-      text-align: center;
-      padding-top: 40px;
-      border-top: 1px solid #2d2d44;
-      color: #6b7280;
-      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-top: 30px;
+      padding-top: 19px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    footer strong { color: #3d4860; }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 18px, 1060px); margin: 9px auto; border-radius: 16px; }
+      .content { padding: 28px 22px 28px; }
+      header, .feature, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .contact { justify-content: flex-start; }
+      header { gap: 22px; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media print {
+      @page { size: Letter; margin: 0.33in; }
+      body { background: #fff; }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .topbar { height: 5px; }
+      .content { padding: 0.22in 0.28in 0.16in; }
+      header { gap: 20px; padding-bottom: 15px; }
+      h1 { font-size: 28px; }
+      .subtitle { font-size: 9.5px; margin-top: 7px; }
+      .contact a { padding: 4px 7px; font-size: 7.4px; }
+      .intro { margin: 12px 0 14px; font-size: 9px; line-height: 1.38; }
+      .section-heading { margin: 13px 0 7px; }
+      .section-heading h2 { font-size: 7.8px; }
+      .section-heading span { font-size: 7.1px; }
+      .feature { padding: 13px 14px 12px 17px; gap: 15px; border-radius: 11px; }
+      .kicker { font-size: 6.7px; margin-bottom: 4px; }
+      h3 { font-size: 11px; }
+      .meta { font-size: 7.3px; margin: 3px 0 6px; }
+      .body-copy { font-size: 7.7px; line-height: 1.36; }
+      .points { margin-top: 7px; gap: 4px; }
+      .points li { font-size: 7.5px; line-height: 1.32; padding-left: 11px; }
+      .points li::before { width: 4px; height: 4px; }
+      .side-note { padding: 10px; gap: 7px; border-radius: 9px; }
+      .side-note strong { font-size: 7.2px; margin-bottom: 2px; }
+      .side-note p { font-size: 6.9px; line-height: 1.3; }
+      .chip { padding: 3px 5px; font-size: 6.1px; }
+      .grid-2, .grid-3 { gap: 8px; }
+      .card { padding: 10px 11px 10px; border-radius: 10px; }
+      .card h3 { font-size: 9.3px; }
+      .card .body-copy { font-size: 7.2px; line-height: 1.33; }
+      .card .chips { margin-top: 7px; gap: 4px; }
+      .card-link { margin-top: 6px; font-size: 6.8px; }
+      .result-row { margin-top: 6px; gap: 4px; }
+      .result { padding: 3px 5px; font-size: 6.4px; border-radius: 6px; }
+      .software-band { margin-top: 14px; }
+      footer { margin-top: 13px; padding-top: 8px; font-size: 6.8px; }
+      a { text-decoration: none; }
+      .feature::before, .card::after { display: none !important; }
+      .card, .feature { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Manoj Harridoss</h1>
-      <p class="tagline">MS Computer Science · Northeastern University</p>
-      <div class="links">
-        <a href="mailto:harridoss.m@northeastern.edu">Email</a>
-        <a href="https://github.com/Manojh23" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/manoj-h-6953b5247/" target="_blank">LinkedIn</a>
-      </div>
-    </header>
-
-    <section>
-      <h2>Current Work</h2>
-      <div class="card highlight">
-        <div class="card-label">Research</div>
-        <h3>Interpretability Research</h3>
-        <div class="meta">Northeastern University · Under Prof. Byron Wallace</div>
-        <p>Working on interpretability methods for large language models, exploring how to make AI systems more transparent and understandable.</p>
-      </div>
-      <div class="card">
-        <div class="card-label">Teaching</div>
-        <h3>Teaching Assistant — Computer Systems (CS3650)</h3>
-        <div class="meta">Northeastern University · Spring 2026</div>
-        <p>Supporting course delivery through office hours, labs, and grading for systems programming coursework.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Publication</h2>
-      <div class="card highlight">
-        <div class="card-label">EANN 2025 · Springer CCIS</div>
-        <h3>Detecting Anomalous Self-Citations Using Citation Network Analysis and LLMs</h3>
-        <p>Research on combining citation-network analysis with LLM-based reasoning to identify potentially anomalous self-citations in academic writing. Achieved 91.84% classification accuracy with 0.93 F1-score.</p>
-        <a href="https://link.springer.com/chapter/10.1007/978-3-031-96196-0_7" target="_blank">View Paper →</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Research Experience</h2>
-      <div class="card highlight">
-        <div class="card-label">Research Internship · May 2024 – Jul 2024</div>
-        <h3>IIIT Bangalore</h3>
-        <p>Developed a self-supervised learning pipeline for end-to-end ASR using the DeepCluster framework. Built a Transformer-based encoder to extract latent embeddings from unlabeled audio, with differentiable K-means clustering for pseudo-label generation. Created a robust acoustic foundation model for downstream ASR fine-tuning.</p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Systems Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h4>NetPorter</h4>
-          <p>FTP server built with TCP sockets in C, featuring CLI for file transfers with user authentication and authorization.</p>
+  <main class="page">
+    <div class="topbar"></div>
+    <div class="content">
+      <header>
+        <div>
+          <p class="eyebrow">Selected Work</p>
+          <h1>Manoj Harridoss</h1>
+          <p class="subtitle">MS Computer Science at Northeastern University · AI research, ML engineering, and software systems</p>
         </div>
-        <div class="project-card">
-          <h4>ExecuShell</h4>
-          <p>Minimalist Unix shell in C with built-in commands, file redirection, piping, command chaining, and history navigation.</p>
-        </div>
-      </div>
-    </section>
+        <nav class="contact" aria-label="Contact links">
+          <a href="mailto:harridoss.m@northeastern.edu">Email</a>
+          <a href="https://github.com/Manojh23" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/manoj-h-6953b5247/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </nav>
+      </header>
 
-    <footer>
-      <p>harridoss.m@northeastern.edu · Boston, MA</p>
-    </footer>
-  </div>
+      <p class="intro">
+        I like work where the research question and the implementation both matter. My current focus is on understanding whether interventions inside large language models reveal stable mechanisms, while my engineering work spans model-serving APIs, MLOps, full-stack applications, and systems programming.
+      </p>
+
+      <div class="section-heading">
+        <h2>Current Research</h2>
+        <span>Mechanistic interpretability · large language models</span>
+      </div>
+
+      <section class="feature">
+        <div>
+          <p class="kicker">Master's thesis · Northeastern University · 2026-present</p>
+          <h3>When a causal intervention works, did we actually find the model's mechanism?</h3>
+          <p class="meta">Studying the robustness and faithfulness of causal subspaces discovered with Distributed Alignment Search (DAS).</p>
+          <p class="body-copy">
+            I am testing whether a successful intervention reflects a reusable internal computation or only a task-specific way to force the desired output. The project follows what happens after the patch, rather than stopping once the counterfactual answer flips.
+          </p>
+          <ul class="points">
+            <li>Built PyTorch and PyVene pipelines for activation interventions across layers, seeds, and lexical distributions.</li>
+            <li>Evaluate causal effectiveness, isolation, downstream persistence, and out-of-distribution behavior together.</li>
+            <li>Compare natural counterfactual trajectories with patched trajectories to find where apparently successful interventions begin to diverge.</li>
+          </ul>
+        </div>
+        <aside class="side-note">
+          <div>
+            <strong>What I am trying to separate</strong>
+            <p>A patch that changes the answer from a patch that reproduces the model's natural causal pathway.</p>
+          </div>
+          <div class="chips">
+            <span class="chip">PyTorch</span>
+            <span class="chip">PyVene</span>
+            <span class="chip">DAS</span>
+            <span class="chip">Activation Patching</span>
+            <span class="chip">Counterfactuals</span>
+            <span class="chip">OOD Evaluation</span>
+          </div>
+        </aside>
+      </section>
+
+      <div class="section-heading">
+        <h2>Earlier AI / ML Work</h2>
+        <span>Research that became working pipelines</span>
+      </div>
+
+      <section class="grid-2">
+        <article class="card">
+          <p class="kicker">Published research · EANN 2025</p>
+          <h3>Citation intelligence with graphs + LLMs</h3>
+          <p class="meta">PES University research</p>
+          <p class="body-copy">
+            Built a citation-network framework over 5,000 papers, identified roughly 2,000 self-citation loops, and developed an LLM pipeline to classify citation context as essential or non-essential.
+          </p>
+          <div class="result-row">
+            <span class="result">91.84% accuracy</span>
+            <span class="result">0.93 F1</span>
+            <span class="result">+16.33% over baseline</span>
+          </div>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">LLMs</span><span class="chip">Graph Analysis</span><span class="chip">Pandas</span>
+          </div>
+          <a class="card-link" href="https://github.com/Manojh23/AnomCite" target="_blank" rel="noreferrer">Code →</a>
+          <a class="card-link" style="margin-left:12px" href="https://link.springer.com/chapter/10.1007/978-3-031-96196-0_7" target="_blank" rel="noreferrer">Paper →</a>
+        </article>
+
+        <article class="card">
+          <p class="kicker">Research internship · IIIT Bangalore</p>
+          <h3>Self-supervised speech recognition</h3>
+          <p class="meta">DeepCluster-style acoustic representation learning</p>
+          <p class="body-copy">
+            Developed a pipeline that converts raw audio to log-mel features, encodes them with a Transformer, and uses differentiable K-means to create pseudo-labels for iterative self-supervised training.
+          </p>
+          <div class="chips">
+            <span class="chip">PyTorch</span><span class="chip">Transformers</span><span class="chip">DeepCluster</span><span class="chip">Audio ML</span>
+          </div>
+          <a class="card-link" href="https://github.com/Manojh23/IIITB_DEEPCLUSTER" target="_blank" rel="noreferrer">Code →</a>
+        </article>
+      </section>
+
+      <div class="software-band">
+        <div class="section-heading">
+          <h2>Software & Systems</h2>
+          <span>Building beyond the experiment</span>
+        </div>
+
+        <section class="grid-3">
+          <article class="card software-card">
+            <p class="kicker">MLOps + application engineering</p>
+            <h3>FitSenseAI</h3>
+            <p class="body-copy">
+              End-to-end AI fitness coaching system with model-serving APIs, application services, synthetic-data pipelines, orchestration, and production-oriented MLOps workflows.
+            </p>
+            <div class="chips">
+              <span class="chip">FastAPI</span><span class="chip">Airflow</span><span class="chip">MLOps</span><span class="chip">PostgreSQL</span>
+            </div>
+            <a class="card-link" href="https://github.com/Manojh23/MLOPS-project" target="_blank" rel="noreferrer">Project →</a>
+          </article>
+
+          <article class="card software-card">
+            <p class="kicker">Systems programming</p>
+            <h3>NetPorter + ExecuShell</h3>
+            <p class="body-copy">
+              Built an FTP-style TCP client/server with authentication and a Unix-style shell with process execution, pipes, redirection, command chaining, and history.
+            </p>
+            <div class="chips">
+              <span class="chip">C</span><span class="chip">TCP/IP</span><span class="chip">Unix</span><span class="chip">System Calls</span>
+            </div>
+            <a class="card-link" href="https://github.com/Manojh23/NetPorter" target="_blank" rel="noreferrer">NetPorter →</a>
+            <a class="card-link" style="margin-left:10px" href="https://github.com/Manojh23/ExecuShell" target="_blank" rel="noreferrer">ExecuShell →</a>
+          </article>
+
+          <article class="card software-card">
+            <p class="kicker">Software design</p>
+            <h3>Virtual Calendar</h3>
+            <p class="body-copy">
+              Java calendar application using MVC and Command patterns, with recurring events, conflict detection, timezone handling, CLI and Swing interfaces, export, analytics, and tests.
+            </p>
+            <div class="chips">
+              <span class="chip">Java</span><span class="chip">MVC</span><span class="chip">Swing</span><span class="chip">JUnit</span>
+            </div>
+            <a class="card-link" href="https://github.com/Manojh23/Virtual-Calendar" target="_blank" rel="noreferrer">Project →</a>
+          </article>
+        </section>
+      </div>
+
+      <footer>
+        <span><strong>What I care about:</strong> experiments that hold up, code people can maintain, and systems that make the research usable.</span>
+        <span>Boston, MA · harridoss.m@northeastern.edu</span>
+      </footer>
+    </div>
+  </main>
 </body>
 </html>
